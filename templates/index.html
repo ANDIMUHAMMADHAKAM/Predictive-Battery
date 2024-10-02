@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Penggantian Aki</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img class="logo" src="{{ url_for('static', filename='logo_kalla_toyota_resize.png') }}" alt="logo">
+        <h2 class="welcome"><!--Selamat datang--></h2>
+    </header>
+    <div class="container">
+        <h1 class="title">Prediksi Penggantian Aki</h1>
+        <form method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="area">Area</label>
+                    <select name="area" id="area" class="uniform-input">
+                        {% for area in areas %}
+                            <option value="{{ area }}" {% if area == selected_area %}selected{% endif %}>{{ area }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle">Jenis Mobil</label>
+                    <select name="vehicle" id="vehicle" class="uniform-input">
+                        {% for vehicle in vehicles %}
+                            <option value="{{ vehicle }}" {% if vehicle == selected_vehicle %}selected{% endif %}>{{ vehicle }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cmr">Masukkan Nilai Kilometer</label>
+                    <input type="number" class="uniform-input" name="cmr" min="0" step="1" value="{{ entered_cmr }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Usia Kendaraan: <span id="displayAge">{{ entered_age if entered_age else 1 }}</span> Tahun</label>
+                    <input type="range" class="slider" name="age" id="age" value="{{ entered_age if entered_age else 1 }}" min="0" max="20" oninput="displayAge.innerText = age.value">
+                </div>
+                <div class="form-group">
+                    <label for="jenis">Jenis Battery</label>
+                    <select name="jenis" id="jenis" class="uniform-input">
+                        {% for jenis in jenis_batteries %}
+                            <option value="{{ jenis }}" {% if jenis == selected_jenis %}selected{% endif %}>{{ jenis }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="delivery_date">Vehicle Delivery Date</label>
+                    <input type="date" class="uniform-input" name="delivery_date" value="{{ entered_delivery_date }}" required>
+                </div>
+            </div>
+            <button type="submit">Penggantian Selanjutnya</button>
+        </form>
+        
+        {% if replacement_dates or future_replacement_dates %}
+        <div class="result">
+            {% if replacement_dates %}
+                <div class="replacement-dates">
+                    <h3>Tanggal Penggantian Aki Sebelumnya:</h3>
+                    {% if replacement_dates | length == 1 %}
+                        <p>Penggantian awal: {{ replacement_dates[0] }}</p>
+                    {% else %}
+                        {% for date in replacement_dates %}
+                            <p>Penggantian {{ loop.index }}: {{ date }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endif %}
+            
+            {% if future_replacement_dates %}
+                <div class="future-replacement-dates">
+                    {% if months_to_add %}
+                        <h3>Prediksi Rentang Penggantian:</h3>
+                            <p>Prediksi penggantian aki terjadi {{ months_to_add }} bulan kedepan.</p>
+                    {% endif %}
+                        <h3>Prediksi Tanggal Penggantian Berikutnya:</h3>
+                    {% for date in future_replacement_dates %}
+                            <p>{{ date }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div> <!-- End of container -->
+
+    <footer>
+        <p class="copyright">@copyright2024</p>
+    </footer>
+    
+    <!-- Link to external JS file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

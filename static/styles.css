@@ -1,0 +1,202 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* sembunyikan slider web */
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8; /* Menambahkan latar belakang untuk visibilitas */
+    box-shadow: 0 -1px 5px rgba(0, 0, 1, 0.5); /* Menambahkan bayangan untuk efek kedalaman */
+    padding: 5px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    position: fixed;    
+}
+.logo {
+    margin-left: auto;
+    margin-right: 20px;
+    width: 140px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    flex-shrink: 0;
+}
+
+.welcome {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.uniform-input {
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    padding: 10px; 
+    margin: 10px auto; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 935px;
+    width: 100%;
+    max-height:70vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: -10px auto;
+    margin-right: -10px auto;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    flex: 1 1 30%; 
+    min-width: 200px; 
+    box-sizing: border-box;
+    margin: 15px;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+select, button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.uniform-input {
+    width: 100%;
+    max-width: 580px; 
+    height: 45px; 
+    padding: 10px; 
+    margin: 1px auto; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.slider {
+    width: 100%;
+    height: 40px;
+    max-width: 580px; /* Maksimum lebar input */
+    background: #d3d3d3;
+    border: 1px solid #ccc; /* Border input */
+    border-radius: 5px; /* Sudut melengkung */
+    box-sizing: border-box; /* Menyertakan border dan padding dalam ukuran total */
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.date, .Mileage {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.result{
+    margin-top: 10px;
+    font-size: 18px;
+    display: flex;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.replacement-dates{
+    margin-right: auto;
+    margin-left: 20px;
+}
+.future-replacement-dates{
+    margin-left: auto;
+    margin-right: 20px;
+
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Menyesuaikan padding agar lebih nyaman */
+    position: fixed; /* Mengubah menjadi fixed agar tetap di bawah saat scrolling */
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f8f8; /* Menambahkan latar belakang untuk visibilitas */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan untuk efek kedalaman */
+}
+
+.copyright {
+    margin-right: auto;
+    font-size: 13px;
+    color: #000000;
+    flex-shrink: 0; /* Menjaga agar teks tidak menyusut */
+    margin-left: 20px;
+}
+
